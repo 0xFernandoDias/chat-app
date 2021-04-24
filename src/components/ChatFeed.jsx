@@ -21,7 +21,7 @@ const ChatFeed = (props) => {
                         {
                             isMyMessage
                                 ? <MyMessage message={message} />
-                                : <TheirMessage message={message} />
+                                : <TheirMessage message={message} lastMessage={messages[lastMessageKey]} />
                         }
                     </div>
                     <div className='read-receipts'
