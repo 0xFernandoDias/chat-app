@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import axios from 'axios'
 
+const projectID = '3e041b2f-5a22-4985-a6bb-9995a4b4932d'
+
 const LoginForm = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -10,7 +12,7 @@ const LoginForm = () => {
         e.preventDefault()
 
         const authObject = {
-            'Project-ID': "3e041b2f-5a22-4985-a6bb-9995a4b4932d",
+            'Project-ID': projectID,
             'User-Name': username,
             'User-Secret': password
         }
@@ -22,6 +24,7 @@ const LoginForm = () => {
             localStorage.setItem('password', password)
 
             window.location.reload()
+            setError('');
 
         } catch (error) {
             setError('Oops, incorrect credentials')
@@ -42,8 +45,8 @@ const LoginForm = () => {
                             <span>Start Chatting</span>
                         </button>
                     </div>
-                    <h2 className="error">{error}</h2>
                 </form>
+                <h2 className="error">{error}</h2>
             </div>
         </div>
     )
